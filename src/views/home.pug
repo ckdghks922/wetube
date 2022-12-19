@@ -1,4 +1,9 @@
-extends base.pug
+extends base
+include mixins/video
 
 block content
-  h1 Home
+  h2 You can see trending videos
+  ul
+    each elem in videos
+      +video(elem)
+    
