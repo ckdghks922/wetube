@@ -4,7 +4,7 @@ const videos = [
     ratings: 3,
     comements: 2,
     createdAt: '10 minutes ago',
-    views: 12,
+    views: 1,
     id: 1,
   },
   {
@@ -26,17 +26,19 @@ const videos = [
 ];
 
 export const handleHome = (req, res) => {
-  res.render('home', { pageTitle: 'Home', videos });
+  return res.render('home', { pageTitle: 'Home', videos });
 };
 
-export const handleSearch = (req, res) => res.send('Search');
+export const handleWatch = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render('watch', { pageTitle: `Watch ${video.title}`, video });
+};
 
-export const handleUpload = (req, res) => res.send('Upload Video');
+export const handleGetEdit = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+  return res.render('edit', { pageTitle: `Edit ${video.title}`, video });
+};
 
-export const handleSee = (req, res) =>
-  res.render('see', { pageTitle: 'Watch' });
-
-export const handleEdit = (req, res) =>
-  res.render('edit', { pageTitle: 'Edit' });
-
-export const handleDelete = (req, res) => res.send('Delete Video');
+export const handlePostEdit = (req, res) => {};

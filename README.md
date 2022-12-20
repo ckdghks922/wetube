@@ -5,7 +5,6 @@ URL ROUTE PLAN
 /
 /join
 /login
-/search
 
 /users/:id
 /users/logout
@@ -14,5 +13,3 @@ URL ROUTE PLAN
 
 /videos/:id
 /videos/:id/edit
-/videos/:id/delete
-/vidoes/upload
